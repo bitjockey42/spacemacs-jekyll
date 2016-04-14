@@ -33,7 +33,7 @@
   '(
     (hyde :location (recipe :fetcher github
                             :repo "nibrahim/Hyde"
-                            :brance "master")))
+                            :branch "master")))
   "The list of Lisp packages required by the jekyll layer.
 
 Each entry is either:
@@ -63,8 +63,6 @@ Each entry is either:
 
 (defun jekyll/init-hyde ()
   (use-package hyde
-    :init
-    (progn
-      (require 'hyde))))
+    :init (require 'hyde)))
 
 ;;; packages.el ends here
