@@ -63,6 +63,11 @@ Each entry is either:
 
 (defun jekyll/init-hyde ()
   (use-package hyde
-    :init (require 'hyde)))
+    :config
+    (progn
+      (spacemacs/set-leader-keys-for-major-mode 'hyde
+        "n" 'hyde/new-post
+        "p" 'hyde/promote-to-post)
+      )))
 
 ;;; packages.el ends here
