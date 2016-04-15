@@ -8,6 +8,8 @@
 
 (defun jekyll/init-hyde ()
   (use-package hyde
+    :init
+    (spacemacs/set-leader-keys "aj" 'hyde)
     :config
     (progn
       (evilified-state-evilify hyde/hyde-mode hyde-mode-map
