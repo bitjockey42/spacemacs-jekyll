@@ -12,6 +12,7 @@
     (progn
       (evilified-state-evilify hyde/hyde-mode hyde-mode-map
         (kbd "n") 'hyde/new-post
+        (kbd "c") 'hyde/hyde-commit-post
         (kbd "g") 'hyde/load-posts
         (kbd "d") 'hyde/delete-post
         (kbd "p") 'hyde/promote-to-post
