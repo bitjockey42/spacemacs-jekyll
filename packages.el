@@ -1,73 +1,27 @@
-;;; packages.el --- jekyll layer packages file for Spacemacs.
-;;
-;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
-;;
-;; Author: AJ <aj@NSA>
-;; URL: https://github.com/syl20bnr/spacemacs
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
-
-;;; Commentary:
-
-;; See the Spacemacs documentation and FAQs for instructions on how to implement
-;; a new layer:
-;;
-;;   SPC h SPC layers RET
-;;
-;;
-;; Briefly, each package to be installed or configured by this layer should be
-;; added to `jekyll-packages'. Then, for each package PACKAGE:
-;;
-;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `jekyll/init-PACKAGE' to load and initialize the package.
-
-;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `jekyll/pre-init-PACKAGE' and/or
-;;   `jekyll/post-init-PACKAGE' to customize the package as it is loaded.
-
 ;;; Code:
 
 (defvar jekyll-packages
   '(
     (hyde :location (recipe :fetcher github
                             :repo "nibrahim/Hyde"
-                            :branch "master")))
-  "The list of Lisp packages required by the jekyll layer.
-
-Each entry is either:
-
-1. A symbol, which is interpreted as a package to be installed, or
-
-2. A list of the form (PACKAGE KEYS...), where PACKAGE is the
-    name of the package to be installed or loaded, and KEYS are
-    any number of keyword-value-pairs.
-
-    The following keys are accepted:
-
-    - :excluded (t or nil): Prevent the package from being loaded
-      if value is non-nil
-
-    - :location: Specify a custom installation location.
-      The following values are legal:
-
-      - The symbol `elpa' (default) means PACKAGE will be
-        installed using the Emacs package manager.
-
-      - The symbol `local' directs Spacemacs to load the file at
-        `./local/PACKAGE/PACKAGE.el'
-
-      - A list beginning with the symbol `recipe' is a melpa
-        recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
+                            :branch "master"))))
 
 (defun jekyll/init-hyde ()
   (use-package hyde
     :config
     (progn
-      (spacemacs/set-leader-keys-for-major-mode 'hyde
-        "n" 'hyde/new-post
-        "p" 'hyde/promote-to-post)
-      )))
+      (evilified-state-evilify hyde/hyde-mode hyde-mode-map
+        (kbd "n") 'hyde/new-post
+        (kbd "g") 'hyde/load-posts
+        (kbd "c") 'hyde/hyde-commit-post
+        (kbd "P") 'hyde/hyde-push
+        (kbd "j") 'hyde/run-jekyll
+        (kbd "s") 'hyde/serve
+        (kbd "k") 'hyde/stop-serve
+        (kbd "d") 'hyde/deploy
+        (kbd "D") 'hyde/delete-post
+        (kbd "p") 'hyde/promote-to-post
+        (kbd "q") 'hyde/quit
+        (kbd "RET") 'hyde/open-post-maybe))))
 
 ;;; packages.el ends here
