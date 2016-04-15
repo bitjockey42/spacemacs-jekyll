@@ -18,7 +18,7 @@ This adds support for [[https://github.com/nibrahim/Hyde][Hyde]], which adds a f
 You will need to install this manually:
 
 #+begin_src shell
-git clone https://github.com/0x414A/spacemacs-jekyll ~/.emacs.d/
+git clone https://github.com/0x414A/spacemacs-jekyll ~/.emacs.d/private/jekyll
 #+end_src
 
 To use this contribution add it to your =~/.spacemacs=
