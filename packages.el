@@ -2,9 +2,7 @@
 
 (defvar jekyll-packages
   '(
-    (hyde :location (recipe :fetcher github
-                            :repo "nibrahim/Hyde"
-                            :branch "master"))))
+    (hyde :location local)))
 
 (defun jekyll/init-hyde ()
   (use-package hyde
