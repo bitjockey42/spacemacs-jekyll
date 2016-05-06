@@ -2,7 +2,7 @@
 
 (defvar jekyll-packages
   '(
-    (hyde :location local)))
+    (hyde)))
 
 (defun jekyll/init-hyde ()
   (use-package hyde
