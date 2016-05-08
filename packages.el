@@ -2,9 +2,7 @@
 
 (defvar jekyll-packages
   '(
-    (hyde :location (recipe
-                     :fetcher github
-                     :repo "0x414A/Hyde"))))
+    hyde))
 
 (defun jekyll/init-hyde ()
   (use-package hyde
